@@ -1,0 +1,43 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Cormorant+Garamond:wght@300;400;500;600&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-serif: "Playfair Display", "Cormorant Garamond", serif;
+  --color-gold: #D4AF37;
+  --color-charcoal: #2D2D2D;
+  --color-ivory: #FAF9F6;
+  --color-stone: #E5E1DA;
+  --color-paper: #F5F2ED;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  body {
+    @apply bg-ivory text-charcoal font-sans antialiased selection:bg-gold/20;
+  }
+}
+
+@layer components {
+  .section-padding {
+    @apply py-12 px-6 md:py-20 md:px-16 lg:px-32;
+  }
+  
+  .artistic-button {
+    @apply inline-block bg-gold text-white px-10 py-4 text-xs uppercase tracking-[0.2em] font-bold transition-all duration-500 hover:brightness-110 active:scale-95 shadow-lg shadow-gold/20 cursor-pointer;
+  }
+
+  .nav-link {
+    @apply text-[11px] uppercase tracking-[0.2em] font-semibold transition-all duration-300;
+  }
+  
+  .nav-link-active {
+    @apply border-b border-gold text-charcoal;
+  }
+  
+  .nav-link-inactive {
+    @apply opacity-50 hover:opacity-100;
+  }
+}
