@@ -155,10 +155,10 @@ const Rooms = () => (
 );
 
 const Hero = () => (
-  <section id="stay" className="relative min-h-[90vh] lg:h-screen bg-ivory overflow-hidden border-b border-stone flex flex-col">
-    <div className="relative h-full flex-grow flex items-center">
-      {/* Background Image Container */}
-      <div className="absolute inset-0 w-full h-full lg:w-[60%] bg-stone overflow-hidden shadow-inner z-0">
+  <section id="stay" className="relative min-h-[95vh] lg:h-screen bg-ivory overflow-hidden border-b border-stone">
+    <div className="grid grid-cols-1 lg:grid-cols-12 h-all min-h-[inherit]">
+      {/* Background/Image Section */}
+      <div className="lg:col-span-7 relative h-[60vh] lg:h-full overflow-hidden shadow-2xl z-0">
         <RotatingImage 
           images={[
             "/assets/492137544_1183714880113672_6899017816317927689_n.jpg",
@@ -169,44 +169,46 @@ const Hero = () => (
           interval={5000}
           alt="Empire Property Exterior"
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent flex items-end p-8 z-10 lg:hidden">
+        <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent flex items-end p-8 z-10 lg:hidden">
           <p className="text-white text-[10px] uppercase tracking-[0.3em] font-medium opacity-90">
-            Traditional Basotho Heritage meets Modernity
+            Traditional Basotho Heritage
           </p>
         </div>
       </div>
       
-      {/* Overlay Content */}
-      <div className="relative container mx-auto px-6 pt-32 lg:pt-0 z-20 flex flex-col lg:flex-row items-center justify-end w-full lg:h-full">
+      {/* Content Section */}
+      <div className="lg:col-span-5 relative flex flex-col justify-center p-6 sm:p-12 lg:p-16 bg-white z-20">
         <motion.div 
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
+          initial={{ opacity: 0, x: 20 }}
+          animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.8 }}
-          className="bg-white/95 backdrop-blur-sm lg:bg-white p-8 lg:p-16 shadow-2xl lg:shadow-none lg:w-[50%] lg:ml-auto border border-stone/20 lg:border-none"
+          className="space-y-6 sm:space-y-8"
         >
-          <p className="hidden lg:block text-gold font-bold tracking-[0.4em] uppercase text-[10px] mb-6">Established Luxury</p>
-          <h1 className="text-4xl sm:text-5xl lg:text-[80px] font-serif italic leading-tight mb-8 tracking-tight text-charcoal">
-            Meticulous Comfort.<br/>
-            <span className="not-italic text-gold">Unrivaled Hospitality.</span>
-          </h1>
-          <p className="text-charcoal/60 leading-relaxed mb-10 text-sm md:text-base max-w-md italic">
-            Experience the gold standard of stays in Leribe. Minutes from the border, miles from the ordinary.
+          <div>
+            <p className="text-gold font-bold tracking-[0.4em] uppercase text-[10px] mb-4">Established Luxury</p>
+            <h1 className="text-3xl sm:text-5xl 2xl:text-7xl font-serif italic leading-[1.1] tracking-tight text-charcoal">
+              Meticulous <span className="not-italic">Comfort.</span><br/>
+              <span className="not-italic text-gold">Unrivaled Hospitality.</span>
+            </h1>
+          </div>
+          
+          <p className="text-charcoal/60 leading-relaxed text-sm sm:text-base max-w-md italic border-l-2 border-stone/50 pl-6">
+            Experience the gold standard of stays in Leribe. Just minutes from the Ficksburg border, miles from the ordinary.
           </p>
-          <div className="flex flex-col sm:flex-row items-start sm:items-center gap-6">
-            <a href="https://wa.me/26657174242" target="_blank" rel="noopener noreferrer" className="artistic-button py-4 px-12 text-center w-full sm:w-auto">
+          
+          <div className="pt-4">
+            <a href="https://wa.me/26657174242" target="_blank" rel="noopener noreferrer" className="artistic-button py-4 px-12 text-center inline-block w-full sm:w-auto shadow-2xl">
               Book via WhatsApp
             </a>
           </div>
+          
+          {/* Subtle Mobile Details */}
+          <div className="grid grid-cols-2 gap-4 lg:hidden pt-8 border-t border-stone/10">
+             <div className="text-[10px] uppercase font-bold tracking-widest text-charcoal/40">Luxury Suites</div>
+             <div className="text-[10px] uppercase font-bold tracking-widest text-charcoal/40">Executive Desk</div>
+          </div>
         </motion.div>
       </div>
-
-      {/* Floating Decorative Elements (Desktop Only) */}
-      <motion.div 
-        initial={{ opacity: 0, scale: 0.9 }}
-        animate={{ opacity: 1, scale: 1 }}
-        transition={{ delay: 1, duration: 1.2 }}
-        className="absolute top-[15%] left-[55%] w-32 h-32 border border-gold/30 rounded-full z-10 hidden xl:block pointer-events-none"
-      />
     </div>
   </section>
 );
@@ -238,36 +240,36 @@ const Experience = () => (
         </div>
 
         <div className="lg:col-span-8">
-          <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
-             <div className="aspect-[3/4] bg-stone relative group overflow-hidden shadow-lg">
+          <div className="grid grid-cols-2 md:grid-cols-3 gap-6 sm:gap-8">
+             <div className="aspect-[3/4] bg-stone relative group overflow-hidden shadow-lg rounded-sm">
                 <img src="/assets/480693594_1140200917798402_1399270993489674435_n.jpg" alt="Crisp Linens" className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
                 <div className="absolute bottom-4 left-4 z-20">
                   <p className="text-[9px] uppercase font-bold text-white tracking-[0.2em]">Crisp Linens</p>
                 </div>
                 <div className="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity" />
              </div>
-             <div className="aspect-[3/4] bg-stone relative group overflow-hidden shadow-lg translate-y-8">
+             <div className="aspect-[3/4] bg-stone relative group overflow-hidden shadow-lg rounded-sm md:mt-12">
                 <img src="/assets/480507950_1140667307751763_8503116553220892313_n.jpg" alt="Luxury Amenities" className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
                 <div className="absolute bottom-4 left-4 z-20">
                   <p className="text-[9px] uppercase font-bold text-white tracking-[0.2em]">Luxury Amenities</p>
                 </div>
                 <div className="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity" />
              </div>
-             <div className="aspect-[3/4] bg-stone relative group overflow-hidden shadow-lg col-span-2 md:col-span-1">
+             <div className="aspect-[3/4] bg-stone relative group overflow-hidden shadow-lg rounded-sm col-span-2 md:col-span-1">
                 <img src="/assets/500084137_1208702394281587_3235144849188990099_n.jpg" alt="Executive Suites" className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
                 <div className="absolute bottom-4 left-4 z-20">
                   <p className="text-[9px] uppercase font-bold text-white tracking-[0.2em]">Executive Suites</p>
                 </div>
                 <div className="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity" />
              </div>
-             <div className="aspect-[4/3] bg-stone relative group overflow-hidden shadow-lg col-span-2">
+             <div className="aspect-[4/3] bg-stone relative group overflow-hidden shadow-lg rounded-sm col-span-2 md:mt-[-3rem]">
                 <img src="/assets/481301294_1144677297350764_2370493548641421636_n.jpg" alt="Modern Interiors" className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
                 <div className="absolute bottom-4 left-4 z-20">
                   <p className="text-[9px] uppercase font-bold text-white tracking-[0.2em]">Modern Interiors</p>
                 </div>
                 <div className="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity" />
              </div>
-             <div className="aspect-square bg-stone relative group overflow-hidden shadow-lg translate-y-[-2rem]">
+             <div className="aspect-square bg-stone relative group overflow-hidden shadow-lg rounded-sm md:mt-4">
                 <img src="/assets/582920969_1347482227070269_1785294081989925271_n.jpg" alt="Basotho Decor" className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
                 <div className="absolute bottom-4 left-4 z-20">
                   <p className="text-[9px] uppercase font-bold text-white tracking-[0.2em]">Basotho Decor</p>
